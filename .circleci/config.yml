@@ -65,12 +65,16 @@ jobs:
       # Initialize Terraform
       - run:
           name: Terraform Init
-          command: terraform init
+          command: |
+            cd env
+            terraform init
 
       # Destroy Terraform resources
       - run:
           name: Terraform Destroy
-          command: terraform destroy -auto-approve
+          command: |
+            cd env
+            terraform destroy -auto-approve
 
 workflows:
   version: 2
