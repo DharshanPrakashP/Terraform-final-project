@@ -45,7 +45,9 @@ jobs:
       # Initialize Terraform
       - run:
           name: Terraform Init
-          command: terraform init
+          command: |
+            cd env
+            terraform init
 
       # Apply Terraform changes
       - run:
