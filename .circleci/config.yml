@@ -30,8 +30,10 @@ jobs:
       - run:
           name: Terraform Init and Plan
           command: |
+            cd env
             terraform init
             terraform plan
+
 
 
   terraform_apply:
@@ -48,7 +50,9 @@ jobs:
       # Apply Terraform changes
       - run:
           name: Terraform Apply
-          command: terraform apply -auto-approve
+          command: |
+            cd env
+            terraform apply -auto-approve
 
   terraform_destroy:
     docker:
